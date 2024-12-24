@@ -1,0 +1,121 @@
+<% include('../layouts/header.ejs') %>
+<h1 style="text-align: center; font-family: Arial, sans-serif; color: #4CAF50;">User Registration Form</h1>
+
+<form
+  action=""
+  method="post"
+  enctype="multipart/form-data"
+  style="
+    width: 300px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  "
+>
+  <input
+    type="text"
+    name="name"
+    placeholder="Enter Name"
+    required
+    style="
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    "
+  />
+  <br />
+  <input
+    type="email"
+    name="email"
+    placeholder="Enter Email"
+    required
+    style="
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    "
+  />
+  <br />
+  <input
+    type="text"
+    name="mno"
+    placeholder="Enter Mobile"
+    required
+    style="
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    "
+  />
+  <br />
+  <input
+    type="file"
+    name="image"
+    required
+    style="
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    "
+  />
+  <br />
+  <input
+    type="password"
+    name="password"
+    placeholder="Enter Password"
+    required
+    style="
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    "
+  />
+  <br />
+  <input
+    type="submit"
+    value="Register"
+    style="
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    "
+  />
+  <br />
+</form>
+
+<% 
+  if(typeof message !== 'undefined'){
+   %> 
+   
+   <p style = "color: green;"><%= message %></p>
+   
+   <%
+  }
+
+%>
+
+<% include('../layouts/footer.ejs') %>
+

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h3 {
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 20px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 50%;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            text-align: right;
+            background-color: #f9f9f9;
+        }
+
+        img {
+            max-width: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto;
+        }
+
+        a {
+            display: block;
+            width: 120px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                width: 90%;
+            }
+
+            img {
+                max-width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <% include('../layouts/header.ejs') %>
+
+    <h3>Welcome, <%= user.name %></h3>
+
+    <table>
+        <tr>
+            <td colspan="2"><img src="userImages/<%= user.image %>" alt="<%= user.image %>"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><%= user.email %></td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td><%= user.mobile %></td>
+        </tr>
+        <tr>
+            <td>Verified</td>
+            <td>
+                <% if(user.is_varified == 1){
+                    %>
+                    <p>Yes</p>
+                    
+                    <%
+                } %>
+            </td>
+        </tr>
+    </table>
+
+    <a href="/edit?id=<%= user._id %>">Edit</a>
+    <a href="/logout">Logout</a>
+
+    <% include('../layouts/footer.ejs') %>
+</body>
+</html>
