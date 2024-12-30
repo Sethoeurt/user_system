@@ -123,18 +123,23 @@ const insertUser = async(req, res) => {
     }
 }
 
-const verifyMail = async(req,res)=>{
-    try{
+const verifyMail = async (req, res) => {
+    try {
+        // Log the ID from the query
+        console.log("ID from query: ", req.query.id);
 
-        const updateInfo = await User.updateOne({_id:req.query.id},{$set:{ is_verified:1}});
+        const updateInfo = await User.updateOne(
+            { _id: req.query.id },
+            { $set: { is_verified: 1 } }
+        );
 
-        console.log(updateInfo);
+        console.log("Update Info: ", updateInfo);
         res.render("email-verified");
-
-    }catch(error){
+    } catch (error) {
         console.log(error.message);
     }
-}
+};
+
 
 //login user methods started
 
@@ -297,7 +302,7 @@ const sentVerificationLink = async(req,res)=>{
 
             sendVerifyMail(userData.name, userData.email, userData._id);
 
-            res.render('verification',{ message:"Reset verification mail sent your Id, please check."});
+            res.render('verification',{ message:"Reset verification mail sent your Email, please check."});
 
         }else{
             res.render('verification',{message:"This email is not exit. "});
@@ -308,7 +313,7 @@ const sentVerificationLink = async(req,res)=>{
     }
 }
 
-// User profile edit and uodate
+// User profile edit and update
 
 const editLoad = async(req,res)=>{
     try{
